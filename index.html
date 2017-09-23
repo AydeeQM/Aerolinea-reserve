@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    <div class="overlay" id="overlay" style="display:none;"></div>
     <div class="container-fluid">
         <div class="container">
             <div class="page-header text-center">
@@ -35,9 +36,10 @@
                 </div>
             </div>
         </div>
-        <div id="passenger" class="container text-center" style="display: none;">
+        <div id="passenger" class="container text-center box">
+            <a class="boxclose" id="boxclose"> X</a>
             <div class="row">
-                <div class="col-xs-6">
+                <div class="col-xs-12">
                     <form class="form-horizontal" role="form">
                         <div class="form-group">
                             <div class="input-group">
@@ -67,22 +69,22 @@
             </div>
         </div>
         <div id="search_id" class="container" style="display: none;">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    DNI N°
-                                </div>
-                                <input class="form-control" id="buscar" name="numdni" type="number" />
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary" type="button" id="buscar">Buscar</button>
-                                </span>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                DNI N°
                             </div>
+                            <input class="form-control" id="buscar" name="numdni" type="number" />
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="button" id="buscar">Buscar</button>
+                            </span>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
     </div>
     <script src="assets/js/linea.js"></script>
 </body>

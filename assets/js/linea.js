@@ -31,12 +31,21 @@ class Reserve {
 
     showInput() {
         $('#addpass').click(() => {
-            $('#passenger').show();
-            $('#send').click(() => {
-                $('#passenger').hide();
+            $('#overlay').fadeIn(200,() =>{
+                $('#passenger').animate({'top':'20px'},200);
+            });
+            return false;
+        });
+        $('#send').click(() => {
+            $('#passenger').animate({'top':'-200px'},500,() =>{
+                $('#overlay').fadeOut('fast');
             });
         });
-
+        $('#boxclose').click(() =>{
+            $('#passenger').animate({'top':'-200px'},500,() =>{
+                $('#overlay').fadeOut('fast');
+            });
+        });
     }
 }
 
