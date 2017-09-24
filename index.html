@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>AEROLINEA RESERVE</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -74,7 +74,8 @@
                 </div>
             </div>
         </div>
-        <div id="search_id" class="container" style="display: none;">
+        <div id="search_id" class="container box">
+            <a class="boxclose" id="boxdelete"> X</a>
             <div class="row">
                 <div class="col-xs-12">
                     <div class="form-group">
@@ -82,14 +83,20 @@
                             <div class="input-group-addon">
                                 DNI N°
                             </div>
-                            <input class="form-control" id="buscar" name="numdni" type="number" />
+                            <input class="form-control" id="get_dni" name="numdni" type="number" />
                             <span class="input-group-btn">
                                 <button class="btn btn-primary" type="button" id="buscar">Buscar</button>
                             </span>
                         </div>
                     </div>
+                    <div id="target"></div>
                 </div>
             </div>
+        </div>
+        <div class="container" id="records" style="margin-top: 25px"></div>
+        <div class="container box" id="modal">
+            <a class="boxclose" id="dopping"> X</a>
+            <div id="tarjeta"></div>
         </div>
     </div>
     <script src="assets/js/linea.js"></script>

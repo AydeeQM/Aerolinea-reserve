@@ -35,3 +35,11 @@ a.boxclose {
     border-radius: 40px;
     padding-top: 4px;
 }
+
+table tr td:nth-child(odd) {
+    background: white;
+}
+
+table tr td:hover {
+    background: salmon;
+}
