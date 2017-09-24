@@ -145,11 +145,11 @@ class Reserve {
 
         $('#cross_out').click(() => {
             let number_seat = $('#cancel').val();
-            let num = parseInt($('#cancel').val());
+            //let num = parseInt($('#cancel').val());
             $.grep(this.passengers, (value, index) => {
                 let ss = this.passengers[index].Item
                 let itemtoRemove = this.passengers[index];
-                if (num === ss) {
+                if (number_seat === ss) {
                     this.passengers.splice($.inArray(itemtoRemove, this.passengers), 1);
                 }
             });
@@ -170,6 +170,7 @@ class Reserve {
 }
 
 let aeroline_reserve = new Reserve(30, 6);
+console.log(aeroline_reserve.passengers);
 aeroline_reserve.drawSeat();
 aeroline_reserve.showInput();
 aeroline_reserve.inboxUser();
