@@ -94,9 +94,19 @@
             </div>
         </div>
         <div class="container" id="records" style="margin-top: 25px"></div>
-        <div class="container box" id="modal">
+        <div class="container box" id="modal_free">
             <a class="boxclose" id="dopping"> X</a>
-            <div id="tarjeta"></div>
+            <div id="break_free">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Asiento N°</span>
+                    <input type="number" class="form-control" placeholder="Username" aria-describedby="basic-addon1" id="cancel">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button" id="check"><span class="glyphicon glyphicon-chevron-down"></span></button>
+                    </span>
+                </div>
+                <div id="list_delete"></div>
+                <a class="btn icon-btn btn-danger" href="#" id="cross_out"><span class="glyphicon btn-glyphicon glyphicon-trash img-circle text-danger"></span>Delete</a>
+            </div>
         </div>
     </div>
     <script src="assets/js/linea.js"></script>

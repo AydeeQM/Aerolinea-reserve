@@ -50,24 +50,14 @@ class Reserve {
 
     inboxUser() {
         $('table tr td').click((event) => {
-
             $("#numseat").val(parseInt(event.target.textContent));
+            $("#cancel").val(parseInt(event.target.textContent));
+
             let num = parseInt($('#numseat').val());
+
             this.currentCell = $(event.target);
-            //this.currentCell.css('background', '#C6EBEB');
-            /* $.grep(this.passengers, (value, index) => {
-                    if (num == this.passengers[index].Item) {
-                        $('#tarjeta').append(`Asiento N°: ${this.passengers[index].Item}<br>\
-                                            Nombre: ${this.passengers[index].Nombre}<br>\
-                                            Apellido: ${this.passengers[index].Apellido}<br>\
-                                            DNI N°: ${this.passengers[index].Dni}<br><br>`)
-                    }
-                });
-    
-                $('#overlay').fadeIn(200, () => {
-                    $('#modal').animate({ 'top': '50px' }, 200);
-                });
-                return false; */
+
+            //this.currentCell.css('background', '#FA8072');
         });
     }
     addUser() {
@@ -123,12 +113,57 @@ class Reserve {
 
     print_All() {
         $('#print').click(() => {
-            for (let i = this.passengers.length - 1; i < this.passengers.length; i++) {
-                $("#records").append(`Asiento N°: ${this.passengers[i].Item}<br>\
+            $('.trx').remove();
+            for (let i = 0; i < this.passengers.length; i++) {
+                $("#records").append(`<div class='trx'>Asiento N°: ${this.passengers[i].Item}<br>\
                                 Nombre: ${this.passengers[i].Nombre}<br>\
                                 Apellido: ${this.passengers[i].Apellido}<br>\
-                                DNI N°: ${this.passengers[i].Dni}<br><br>`);
+                                DNI N°: ${this.passengers[i].Dni}<br><br></div>`);
             };
+        });
+    }
+
+    cancelSeat() {
+        $('#delete').click(() => {
+            $('#overlay').fadeIn(200, () => {
+                $('#modal_free').animate({ 'top': '20px' }, 200);
+            });
+            return false;
+        });
+
+        $('#check').click(() =>{
+            let e_num = $('#cancel').val();
+            $.grep(this.passengers, (value, index) => {
+                if (e_num == this.passengers[index].Item) {
+                    $('#list_delete').append(`Asiento N°: ${this.passengers[index].Item}<br>\
+                                        Nombre: ${this.passengers[index].Nombre}<br>\
+                                        Apellido: ${this.passengers[index].Apellido}<br>\
+                                        DNI N°: ${this.passengers[index].Dni}<br><br>`)
+                }
+            });
+        })
+
+        $('#cross_out').click(() => {
+            let number_seat = $('#cancel').val();
+            let num = parseInt($('#cancel').val());
+            $.grep(this.passengers, (value, index) => {
+                let ss = this.passengers[index].Item
+                let itemtoRemove = this.passengers[index];
+                if (num === ss) {
+                    this.passengers.splice($.inArray(itemtoRemove, this.passengers), 1);
+                }
+            });
+
+            this.currentCell.css('background', 'transparent');
+
+            $('#modal_free').animate({ 'top': '-300px' }, 500, () => {
+                $('#overlay').fadeOut('fast');
+            });
+        });
+        $('#dopping').click(() => {
+            $('#modal_free').animate({ 'top': '-300px' }, 500, () => {
+                $('#overlay').fadeOut('fast');
+            });
         });
     }
 
@@ -141,3 +176,4 @@ aeroline_reserve.inboxUser();
 aeroline_reserve.addUser();
 aeroline_reserve.searchList();
 aeroline_reserve.print_All();
+aeroline_reserve.cancelSeat();
