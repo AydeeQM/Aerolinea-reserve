@@ -7,6 +7,14 @@ class Reserve {
         this.currentCell = undefined;
     }
 
+    init() {
+        $('#open').click(() => {
+            $('#overdiv').animate({ 'top': '-650px' }, 500, () => {
+                $('#overdiv').fadeOut('fast');
+            });
+        });
+    }
+
     drawSeat() {
         let col = this.numSeat / this.row;
         let passage = '';
@@ -70,25 +78,42 @@ class Reserve {
 
     addUser() {
         $('#send').click(() => {
-            let data = {};
-            let number_seat = $('#numseat').val();
-            let suNombre = $('#name').val();
-            let suApellido = $('#surname').val();
-            let suDNI = parseInt($('#iddni').val());
-            data.Item = number_seat;
-            data.Nombre = suNombre;
-            data.Apellido = suApellido;
-            data.Dni = suDNI;
+            $('.error').remove();
+            if ($('#name').val() == "") {
+                $('#name').focus().after("<span class='error'>Ingrese su nombre</span>");
+                return false;
+            } else if ($('#surname').val() == "") {
+                $('#surname').focus().after("<span class='error'>Ingrese su apellido</span>");
+                return false;
+            } else if ($('#iddni').val() == "") {
+                $('#iddni').focus().after("<span class='error'>Ingrese su DNI</span>");
+                return false;
+            } else {
+                let data = {};
+                let number_seat = $('#numseat').val();
+                let suNombre = $('#name').val();
+                let suApellido = $('#surname').val();
+                let suDNI = parseInt($('#iddni').val());
+                data.Item = number_seat;
+                data.Nombre = suNombre;
+                data.Apellido = suApellido;
+                data.Dni = suDNI;
+                this.passengers.push(data);
+                alert(`El pasajero ${data.Nombre} ${data.Apellido} en el asiento N° ${data.Item} se ha agregado correctamente`);
+                this.currentCell.css('background', '#F8ED50');
 
-            this.passengers.push(data);
-            alert(`El pasajero ${data.Nombre} ${data.Apellido} en el asiento N° ${data.Item} se ha agregado correctamente`);
-            this.currentCell.css('background', '#F8ED50');
+                $("#numseat").val('');
+                $("#name").val('');
+                $("#surname").val('');
+                $("#iddni").val('');
+            }
+        });
 
-            $("#numseat").val('');
-            $("#name").val('');
-            $("#surname").val('');
-            $("#iddni").val('');
-
+        $('#name, #surname, #iddni').keyup(function(){
+            if($(this).val() != ""){
+                $('.error').fadeOut();
+                return false;
+            }
         });
     }
 
@@ -186,6 +211,7 @@ class Reserve {
 
 let aeroline_reserve = new Reserve(30, 6);
 console.log(aeroline_reserve.passengers);
+aeroline_reserve.init();
 aeroline_reserve.drawSeat();
 aeroline_reserve.showInput();
 aeroline_reserve.inboxUser();

@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>AEROLINEA RESERVE</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
@@ -50,7 +50,7 @@
         <div class="action text-center">
             <h3>Welcome To Our Aeroline</h3>
             <h1>IT'S NICE TO MEET YOU</h1>
-            <a class="btn btn-warning" href="#">FOR RESERVE</a>
+            <a id="open" class="btn btn-warning" href="#">FOR RESERVE</a>
         </div>
     </header>
     <div class="overlay" id="overlay" style="display:none;"></div>
@@ -85,28 +85,32 @@
                                 <div class="input-group-addon">
                                     N° de Asiento
                                 </div>
-                                <input class="form-control" type="number" placeholder="asiento" name="nombre" id="numseat" value="" required/>
+                                <input class="form-control sss" type="number" placeholder="asiento" name="nombre" id="numseat" value="" required/>
                             </div>
+                            <br>
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     Nombre
                                 </div>
-                                <input class="form-control" type="text" placeholder="nombre" name="nombre" id="name" required/>
+                                <input class="form-control sss" type="text" placeholder="nombre" name="nombre" id="name" required/>
                             </div>
+                            <br>
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     Apellido
                                 </div>
-                                <input class="form-control" type="text" placeholder="apellido" name="apellido" id="surname" required/>
+                                <input class="form-control sss" type="text" placeholder="apellido" name="apellido" id="surname" required/>
                             </div>
+                            <br>
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     DNI N°
                                 </div>
-                                <input class="form-control" type="number" placeholder="DNI" name="eldni" id="iddni" required/>
+                                <input class="form-control sss" type="number" placeholder="DNI" name="eldni" id="iddni" required/>
                             </div>
+                            <br>
                             <div class="input-group">
-                                <button id="send" type="button" class="btn btn-primary btn-block submit-btn">Guardar</button>
+                                <button id="send" type="button" class="btn btn-success btn-block submit-btn"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Guardar</button>
                             </div>
                         </div>
                     </form>
@@ -144,6 +148,7 @@
                     </span>
                 </div>
                 <div id="list_delete"></div>
+                <br>
                 <a class="btn icon-btn btn-danger" href="#" id="cross_out"><span class="glyphicon btn-glyphicon glyphicon-trash img-circle text-danger"></span>Delete</a>
             </div>
         </div>
