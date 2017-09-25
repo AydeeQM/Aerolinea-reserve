@@ -64,11 +64,6 @@ class Reserve {
             return false;
         });
 
-        $('#send').click(() => {
-            $('#passenger').animate({ 'top': '-300px' }, 500, () => {
-                $('#overlay').fadeOut('fast');
-            });
-        });
         $('#boxclose').click(() => {
             $('#passenger').animate({ 'top': '-300px' }, 500, () => {
                 $('#overlay').fadeOut('fast');
@@ -106,6 +101,10 @@ class Reserve {
                 $("#name").val('');
                 $("#surname").val('');
                 $("#iddni").val('');
+
+                $('#passenger').animate({ 'top': '-300px' }, 500, () => {
+                    $('#overlay').fadeOut('fast');
+                });
             }
         });
 
