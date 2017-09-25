@@ -50,14 +50,16 @@ class Reserve {
 
     inboxUser() {
         $('table tr td').click((event) => {
+            this.currentCell = $(event.target);
+
+            if( this.currentCell.attr("bgcolor") != "#F8ED50" ){
+                this.currentCell.toggleClass("highlight");
+              }
+
             $("#numseat").val(parseInt(event.target.textContent));
             $("#cancel").val(parseInt(event.target.textContent));
 
             let num = parseInt($('#numseat').val());
-
-            this.currentCell = $(event.target);
-
-            //this.currentCell.css('background', '#FA8072');
         });
     }
     addUser() {
@@ -96,6 +98,7 @@ class Reserve {
             let id_dni = parseInt($('#get_dni').val());
             $.grep(this.passengers, (value, index) => {
                 if (id_dni == this.passengers[index].Dni) {
+                    $('#target').empty();
                     $('#target').append(`Asiento N°: ${this.passengers[index].Item}<br>\
                                         Nombre: ${this.passengers[index].Nombre}<br>\
                                         Apellido: ${this.passengers[index].Apellido}<br>\
@@ -131,7 +134,7 @@ class Reserve {
             return false;
         });
 
-        $('#check').click(() =>{
+        $('#check').click(() => {
             let e_num = $('#cancel').val();
             $.grep(this.passengers, (value, index) => {
                 if (e_num == this.passengers[index].Item) {

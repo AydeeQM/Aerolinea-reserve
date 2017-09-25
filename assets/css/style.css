@@ -36,12 +36,8 @@ a.boxclose {
     padding-top: 4px;
 }
 
-table tr td:nth-child(odd) {
-    background: white;
-}
-
 table tr td:hover {
-    background: #FA8072;
+    background: #E2E2E2;
 }
 
 .btn-glyphicon { 
@@ -53,3 +49,4 @@ table tr td:hover {
     padding: 1px 15px 3px 2px; 
     border-radius:50px;
 }
+.highlight { background-color: #B4AEAE; }
