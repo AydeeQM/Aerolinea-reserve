@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Courgette|Lobster|Merriweather:400i|Montserrat|Roboto+Slab|Source+Sans+Pro:600');
+
 .overlay{
     background: black;
     opacity: .5;
@@ -50,3 +52,128 @@ table tr td:hover {
     border-radius:50px;
 }
 .highlight { background-color: #B4AEAE; }
+
+/* Definiedo estilo para la pantalla principal */
+.overdiv {
+    position: fixed;
+    background-image: url(../img/portada.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10000;
+    justify-content: center;
+    display: flex;
+    /* background-color: #0A0A0A; */
+    /* background-color: hsla(156, 79%, 38%, 0.8); */
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Encabezado */
+
+#title-general{
+    font-family: 'Courgette', cursive;
+    font-size: 3vw;
+    color: #EECD14;
+}
+
+header .navbar-inverse {
+    background-color: transparent;
+    border-color: transparent;
+    padding: 1.4vw 5vw;
+}
+
+.navbar-toggle{
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-inverse .navbar-toggle {
+    background: #EECD14;
+    font-size: 3vw;
+    font-weight: bold;
+}
+
+.navbar-toggle .icon-bar+.icon-bar{
+    margin-top: 2px !important;
+}
+
+.navbar-toggle .icon-bar {
+    width: 14px !important;
+    margin-left: 4px;
+}
+
+header .navbar-inverse .navbar-nav>.active>a{
+    color: #fff;
+    background-color: #EECD14;
+    border-radius: 5px;
+}
+
+header .navbar-inverse .navbar-nav>li>a {
+    color: #fff;
+    font-weight: 600;
+}
+
+header .navbar-inverse .navbar-nav>li>.unico {
+    color: #080700;
+}
+
+header .action{
+    color: #fff;
+    margin-top: 230px;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 0;
+    border-radius: 7px;
+    padding: 5%;
+    background-color: rgba(211, 57, 108, 0.6);
+}
+
+header .action>h3{
+    font-family: 'Merriweather', serif;
+    font-size: 2.2vw;
+    letter-spacing: 0.2vw;
+}
+
+header .action>h1{
+    font-size: 5vw;
+    font-weight: bold;
+    margin-bottom: 3vw;
+}
+
+header .action .btn-warning {
+    color: #fff;
+    background-color: #EECD14;
+    border-color: #EECD14;
+    padding: 1.2vw 1.8vw;
+    font-size: 1.7vw;
+    font-weight: bold;
+}
+
+@media (min-width: 768px){
+.navbar-toggle {
+    display: none; 
+    }
+}
+
+.navbar-brand {
+    padding: 0px;
+  }
+
+.navbar-brand>img {
+    height: 100%;
+    width: auto;
+  }

@@ -6,14 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>AEROLINEA RESERVE</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+    <header class="overdiv" id="overdiv" style="display:block;">
+        <nav id="menu" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                <span>MENU</span>
+                                <div class="barra">                        
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </div>
+                           
+                          </button>
+                    <a id="title-general" class="navbar-brand" href="#"><img src="assets/img/logo.png" alt=""></a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav pull-right">
+                        <li class="dropdown"><a class="dropdown-toggle unico" data-toggle="dropdown" href="#">VUELOS<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#section41">Solo vuelo</a></li>
+                                <li><a href="#section42">Vuelo + Hotel</a></li>
+                                <li><a href="#section42">Vuelo + Auto</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#section1">HOTELES</a></li>
+                        <li><a href="#section2">PAQUETES</a></li>
+                        <li><a href="#section3">AUTOS</a></li>
+                        <li><a href="#section4">ACTIVIDADES</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="action text-center">
+            <h3>Welcome To Our Aeroline</h3>
+            <h1>IT'S NICE TO MEET YOU</h1>
+            <a class="btn btn-warning" href="#">FOR RESERVE</a>
+        </div>
+    </header>
     <div class="overlay" id="overlay" style="display:none;"></div>
     <div class="container-fluid">
         <div class="container">
