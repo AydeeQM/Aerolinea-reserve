@@ -1,5 +1,4 @@
 "use strict";
-
 class Reserve {
     constructor(numSeat, row) {
         this.numSeat = numSeat;
@@ -29,13 +28,34 @@ class Reserve {
         $('#tablero').append(table);
     }
 
+    inboxUser() {
+        $('table tr td').click((event) => {
+            this.currentCell = $(event.target);
+
+            if (this.currentCell.attr("bgcolor") != "#F8ED50") {
+                this.currentCell.toggleClass("highlight");
+            }
+
+            $("#numseat").val(parseInt(event.target.textContent));
+            $("#cancel").val(parseInt(event.target.textContent));
+
+            let num = parseInt($('#numseat').val());
+        });
+    }
+
     showInput() {
         $('#addpass').click(() => {
-            $('#overlay').fadeIn(200, () => {
-                $('#passenger').animate({ 'top': '20px' }, 200);
-            });
+            if (this.currentCell) {
+                $('#overlay').fadeIn(200, () => {
+                    $('#passenger').animate({ 'top': '20px' }, 200);
+                });
+            } else {
+                alert('Seleccione asiento para reservar');
+            }
+
             return false;
         });
+
         $('#send').click(() => {
             $('#passenger').animate({ 'top': '-300px' }, 500, () => {
                 $('#overlay').fadeOut('fast');
@@ -48,20 +68,6 @@ class Reserve {
         });
     }
 
-    inboxUser() {
-        $('table tr td').click((event) => {
-            this.currentCell = $(event.target);
-
-            if( this.currentCell.attr("bgcolor") != "#F8ED50" ){
-                this.currentCell.toggleClass("highlight");
-              }
-
-            $("#numseat").val(parseInt(event.target.textContent));
-            $("#cancel").val(parseInt(event.target.textContent));
-
-            let num = parseInt($('#numseat').val());
-        });
-    }
     addUser() {
         $('#send').click(() => {
             let data = {};
@@ -75,7 +81,7 @@ class Reserve {
             data.Dni = suDNI;
 
             this.passengers.push(data);
-            alert('El pasajero ' + ' ' + data.Nombre + ' ' + data.Apellido + ' en el asiento N° ' + data.Item + ' se ha agregado correctamente');
+            alert(`El pasajero ${data.Nombre} ${data.Apellido} en el asiento N° ${data.Item} se ha agregado correctamente`);
             this.currentCell.css('background', '#F8ED50');
 
             $("#numseat").val('');
@@ -128,15 +134,21 @@ class Reserve {
 
     cancelSeat() {
         $('#delete').click(() => {
-            $('#overlay').fadeIn(200, () => {
-                $('#modal_free').animate({ 'top': '20px' }, 200);
-            });
+            if (this.currentCell) {
+                $('#overlay').fadeIn(200, () => {
+                    $('#modal_free').animate({ 'top': '20px' }, 200);
+                });
+            } else {
+                alert('Seleccione asiento para eliminar');
+            }
+
             return false;
         });
 
         $('#check').click(() => {
             let e_num = $('#cancel').val();
             $.grep(this.passengers, (value, index) => {
+                $('#list_delete').empty();
                 if (e_num == this.passengers[index].Item) {
                     $('#list_delete').append(`Asiento N°: ${this.passengers[index].Item}<br>\
                                         Nombre: ${this.passengers[index].Nombre}<br>\
